@@ -9,7 +9,17 @@ export const StyledHeader = styled.header`
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  @media (max-width: 600px) {
+    position: relative;
+    flex-direction: column;
+    gap: 2rem;
+  }
 `
 export const StyledModeButton = styled.button`
   background-color: transparent;
+  @media (max-width: 600px) {
+    position: absolute;
+    top: -30%;
+    right: 0%;
+  }
 `

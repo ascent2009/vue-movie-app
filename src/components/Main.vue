@@ -1,6 +1,11 @@
 <script setup>
 import { StyledMain } from '@/styled-components/Main'
-import { StyledFlagman, StyledRatingBlock, StyledTitle } from '@/styled-components/Flagman'
+import {
+  StyledFlagman,
+  StyledRatingBlock,
+  StyledSubRatingBlock,
+  StyledTitle,
+} from '@/styled-components/Flagman'
 import {
   StyledList,
   StyledListItem,
@@ -17,8 +22,11 @@ defineEmits(['handleShowComponent'])
     <router-link :to="'/movie/' + flagman.id" @click="$emit('handleShowComponent')">
       <StyledFlagman>
         <StyledRatingBlock>
-          <img src="@/assets/rating.svg" alt="rating" width="35" />
-          <StyledTitle>{{ flagman.popularity }}</StyledTitle>
+          <img src="@/assets/pioneer.png" alt="rating" width="70" />
+          <StyledSubRatingBlock>
+            <img src="@/assets/rating.svg" alt="rating" width="35" />
+            <StyledTitle>{{ flagman.popularity }}</StyledTitle>
+          </StyledSubRatingBlock>
         </StyledRatingBlock>
         <img :src="SRC_URL + '/' + 'w500' + '/' + flagman.poster_path" alt="poster" />
       </StyledFlagman>

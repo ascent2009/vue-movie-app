@@ -7,6 +7,13 @@ export const StyledList = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 5rem;
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 export const StyledText = styled.p`
   display: none;
@@ -33,6 +40,11 @@ export const StyledListItem = styled.li`
   }
   &:hover {
     opacity: 0.5;
+  }
+  @media (max-width: 600px) {
+    &:active ${StyledText} {
+      display: flex;
+    }
   }
 `
 export const StyledRatingBlockItem = styled.div`

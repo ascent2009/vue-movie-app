@@ -9,6 +9,9 @@ export const StyledInputBlock = styled.div`
   padding: 4px 8px;
   align-items: center;
   gap: 10px;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `
 
 export const StyledInput = styled.input`
