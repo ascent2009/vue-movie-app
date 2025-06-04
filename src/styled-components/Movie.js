@@ -52,7 +52,7 @@ export const StyledURL = styled(StyledBackLink)`
     color: rgb(120, 160, 120);
   }
   @media (max-width: 600px) {
-    text-decoration: underline dashed;
+    text-decoration: underline;
     font-size: 18px;
   }
 `
@@ -78,8 +78,9 @@ export const StyledList = styled.ul`
   gap: 3rem;
   width: 90%;
   @media (max-width: 600px) {
-    flex-wrap: wrap;
-    justify-content: center;
+    ${'' /* flex-wrap: wrap; */}
+    flex-direction: column;
+    align-items: center;
   }
 `
 export const StyledListItem = styled.li`

@@ -13,6 +13,7 @@ export const StyledList = styled.ul`
   @media (max-width: 600px) {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 `
 export const StyledText = styled.p`
@@ -23,10 +24,13 @@ export const StyledText = styled.p`
   color: white;
   width: 25rem;
   height: 100%;
-  left: -15%;
+  left: -25%;
   font-size: 1.5rem;
   opacity: 1;
   transition: 1s;
+  @media (max-width: 600px) {
+    font-size: 1rem;
+  }
 `
 export const StyledListItem = styled.li`
   position: relative;
