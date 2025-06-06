@@ -7,7 +7,6 @@ export const useGetMovies = () => {
   const movies = ref([])
   const flagman = ref({})
   const showComp = ref(true)
-  // const input = ref('')
 
   const fetchPopularMovies = async () => {
     try {

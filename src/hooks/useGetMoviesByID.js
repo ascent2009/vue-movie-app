@@ -12,7 +12,7 @@ export const useGetMoviesByID = () => {
     try {
       const response = await axios.get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
       movie.value = await response.data
-      console.log('movie: ', movie)
+      // console.log('movie: ', movie)
     } catch (e) {
       console.error('Error fetching data from TMDB: ', e)
     }
@@ -20,7 +20,7 @@ export const useGetMoviesByID = () => {
 
   onMounted(() => {
     movieID.value = route.params.id
-    console.log(movieID)
+    // console.log(movieID)
     fetchMovie(route.params.id)
   })
 

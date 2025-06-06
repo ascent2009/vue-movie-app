@@ -45,8 +45,8 @@ import { SRC_URL } from '@/constants'
           </StyledListItem>
         </StyledList>
         <StyledTitle>Release date: {{ movie.release_date }}</StyledTitle>
-        <StyledTitle v-if="budget">Budget: ${{ movie.budget }}</StyledTitle>
-        <StyledTitle v-if="revenue">Revenue: ${{ movie.revenue }}</StyledTitle>
+        <StyledTitle v-show="movie.budget">Budget: ${{ movie.budget }}</StyledTitle>
+        <StyledTitle v-show="movie.revenue">Revenue: ${{ movie.revenue }}</StyledTitle>
         <StyledTitle>Runtime: {{ movie.runtime }} min</StyledTitle>
         <StyledList>
           <StyledListItem v-for="{ name, logo_path } in movie.production_companies" :key="name">

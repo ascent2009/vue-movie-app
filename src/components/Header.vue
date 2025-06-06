@@ -1,10 +1,14 @@
 <script setup>
 import { StyledHeader, StyledModeButton } from '@/styled-components/Header'
-import { StyledInputBlock, StyledInput } from '@/styled-components/Input'
-
-defineProps(['showComp', 'isDark', 'movies'])
-defineEmits(['toggleDark', 'handleChange'])
+import { StyledInputBlock } from '@/styled-components/Input'
 const model = defineModel()
+defineProps(['showComp', 'isDark'])
+defineEmits(['toggleDark', 'update:modelValue'])
+
+// const handleChange = (event) => {
+//   model.value = event.target.value
+//   console.log('model: ', model)
+// }
 </script>
 
 <template>
@@ -14,8 +18,10 @@ const model = defineModel()
     </a>
     <StyledInputBlock>
       <img src="@/assets/search.svg" alt="search" width="30" />
-      <StyledInput placeholder="search" borderColor="white" v-model="model" />
+
+      <input v-model="model" placeholder="search" />
     </StyledInputBlock>
+
     <StyledModeButton @click="$emit('toggleDark', console.log(isDark))">
       <img src="@/assets/dark.svg" alt="logo" width="30" />
     </StyledModeButton>
@@ -29,5 +35,13 @@ a {
 }
 a:hover {
   background-color: rgb(95, 97, 100);
+}
+input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  font-size: 1em;
+  padding: 0;
 }
 </style>

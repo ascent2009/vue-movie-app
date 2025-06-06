@@ -1,4 +1,5 @@
 <script setup>
+import { ref, watchEffect } from 'vue'
 import { StyledMain } from '@/styled-components/Main'
 import {
   StyledFlagman,
@@ -13,8 +14,23 @@ import {
   StyledText,
 } from '@/styled-components/MovieList'
 import { SRC_URL } from '@/constants'
-defineProps(['flagman', 'movies', 'showComp'])
+const props = defineProps(['flagman', 'movies', 'showComp', 'msg'])
 defineEmits(['handleShowComponent'])
+const moviesFound = ref([])
+
+const handleSearch = () => {
+  moviesFound.value = props.movies.filter((movie) => movie.title.toLowerCase().includes(props.msg))
+  console.log('moviesFound: ', moviesFound.value)
+  console.log(
+    'movies: ',
+    props.movies.filter((movie) => movie.title.toLowerCase().includes(props.msg)),
+  )
+  console.log(props.msg)
+}
+watchEffect(() => {
+  // `foo` transformed to `props.foo` by the compiler
+  handleSearch()
+})
 </script>
 
 <template>
@@ -33,7 +49,7 @@ defineEmits(['handleShowComponent'])
     </router-link>
 
     <StyledList v-show="showComp">
-      <StyledListItem v-for="{ id, overview, poster_path, popularity } in movies" :key="id">
+      <StyledListItem v-for="{ id, overview, poster_path, popularity } in moviesFound" :key="id">
         <router-link :to="'/movie/' + id" @click="$emit('handleShowComponent')">
           <StyledText>{{ overview }}</StyledText>
           <img :src="SRC_URL + '/' + 'w300' + '/' + poster_path" alt="poster" />
